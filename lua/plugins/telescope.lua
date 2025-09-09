@@ -17,7 +17,7 @@ return {
           prompt_prefix = "🔍 ",
           selection_caret = "➤ ",
           path_display = { "truncate" },
-          initial_mode = "normal",
+          initial_mode = "insert",
         },
         pickers = {
           find_files = {

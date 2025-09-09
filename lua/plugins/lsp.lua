@@ -22,6 +22,9 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          -- Lua
+          "lua_ls",         -- Lua LSP (fixes vim warnings)
+          
           -- Python
           "pyright",        -- Python LSP
           "ruff",           -- Python linting/formatting
@@ -48,6 +51,27 @@ return {
     dependencies = { "mason-lspconfig.nvim" },
     config = function()
       local lspconfig = require("lspconfig")
+      
+      -- Lua LSP (fixes vim warnings)
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT"
+            },
+            diagnostics = {
+              globals = { "vim" },  -- This fixes the "vim undefined" warnings
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false,
+            },
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      })
       
       -- Python LSPs
       lspconfig.pyright.setup({

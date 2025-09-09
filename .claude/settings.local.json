@@ -5,6 +5,9 @@
       "Bash(git init:*)"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "additionalDirectories": [
+      "/Users/davidbroza/.local/share/nvim/lazy/telescope-fzf-native.nvim"
+    ]
   }
 }
