@@ -1,4 +1,4 @@
-eturn {
+return {
   -- Bufferline: Shows open files as tabs at the top
   {
     "akinsho/bufferline.nvim", 
